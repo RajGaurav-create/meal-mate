@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>Order Summary</title>
+
+    <!-- ✅ LINK CSS HERE -->
+    <link rel="stylesheet" href="{% static 'more.css' %}">
+</head>
+
+<body>
+
+<div class="order-container">
+
+    <h1 class="order-title">Thank you {{ username }}! 🎉</h1>
+
+    {% if order %}
+        <h2 class="order-id">Order ID: #{{ order.id }}</h2>
+
+        <table class="order-table">
+            <tr>
+                <th>Item</th>
+                <th>Price</th>
+            </tr>
+
+            {% for item in order.items.all %}
+            <tr>
+                <td>{{ item.name }}</td>
+                <td>₹{{ item.price }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        <p class="status {{ order.status|lower }}">
+            Status: {{ order.status }}
+        </p>
+
+        <h3 class="total">Total: ₹{{ order.total_price }}</h3>
+    {% endif %}
+
+    <a href="/" class="home-btn">Back to Home</a>
+
+</div>
+
+</body>
+</html>

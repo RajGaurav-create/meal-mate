@@ -1,0 +1,96 @@
+/* Page background */
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #ffecd2, #fcb69f);
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+/* Container */
+.order-container {
+    width: 60%;
+    margin: 50px auto;
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+/* Title */
+.order-title {
+    color: #2f3640;
+    margin-bottom: 10px;
+}
+
+/* Order ID */
+.order-id {
+    color: #555;
+    margin-bottom: 20px;
+}
+
+/* Table */
+.order-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+/* Header */
+.order-table th {
+    background-color: #2f3640;
+    color: white;
+    padding: 12px;
+}
+
+/* Cells */
+.order-table td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Hover */
+.order-table tr:hover {
+    background-color: #f5f6fa;
+}
+
+/* Status */
+.status {
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.status.pending {
+    color: orange;
+}
+
+.status.confirmed {
+    color: blue;
+}
+
+.status.delivered {
+    color: green;
+}
+
+/* Total */
+.total {
+    font-size: 18px;
+    font-weight: bold;
+    color: #e84118;
+}
+
+/* Button */
+.home-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 25px;
+    background-color: #44bd32;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: 0.3s;
+}
+
+.home-btn:hover {
+    background-color: #4cd137;
+}

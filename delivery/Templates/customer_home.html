@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Page</title>
+
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+
+<body>
+
+    <h1 class="title">Restaurants</h1>
+
+    <div class="container">
+
+        <table class="restaurant-table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Image</th>
+                    <th>Cuisine</th> 
+                    <th>Rating</th>
+                    <th>More</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for r in restaurantList %}
+                <tr>
+                    <td>{{ r.name }}</td>
+
+                    <!-- FIX: use image field (change if your field name is different) -->
+                    <td>
+                        <img src="{{ r.image }}" class="restaurant-img">
+                    </td>
+
+                    <td>{{ r.cuisine }}</td>
+                    <td class="rating">⭐ {{ r.rating }}</td>
+
+                    <td>
+                        <a href="{% url 'view_menu' r.id username %}" class="view-btn">
+                            View More
+                        </a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+    </div>
+
+</body>
+</html>

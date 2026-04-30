@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cart</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}"/>
+</head>
+
+<body>
+
+<h1 class="title">Cart - {{ username }}</h1>
+
+<div class="container">
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Image</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Price</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for item in itemlist %}
+        <tr>
+            <td><img src="{{ item.picture }}" class="item-img"></td>
+            <td>{{ item.name }}</td>
+            <td>{{ item.description }}</td>
+            <td class="price">₹{{ item.price }}</td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="4">Your cart is empty</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<h2>Total price: ₹{{ total_price }}</h2>
+
+<form action="{% url 'checkout' username %}">
+    <input type="submit" value="CHECK OUT" class="btn btn-green"/>
+</form>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,14 @@
+<h1>{{ username }} - Order History</h1>
+
+{% for order in orders %}
+    <h3>Order ID: {{ order.id }}</h3>
+    <p>Total: ₹{{ order.total_price }}</p>
+
+    <ul>
+        {% for item in order.items.all %}
+            <li>{{ item.name }} - ₹{{ item.price }}</li>
+        {% endfor %}
+    </ul>
+{% empty %}
+    <p>No orders yet</p>
+{% endfor %}
